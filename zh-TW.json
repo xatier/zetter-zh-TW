@@ -189,11 +189,11 @@
                 "render_links": "Render Links",
                 "render_math": "Render Formulae",
                 "render_tasks": "Render Tasks",
-                "title": "Display"
+                "title": "檢視"
             },
             "display_time_explanation": "In the file metadata display",
-            "editor": "Editor",
-            "enable_rmarkdown": "Enable RMarkdown file support",
+            "editor": "編輯器",
+            "enable_rmarkdown": "開啟 RMarkdown 檔案支援",
             "enable_table_helper": "Enable Table Editor",
             "export": {
                 "dest": "Target directory for exported files. \u003Cem\u003EAttention:\u003C/em\u003E Selecting the current working directory will overwrite files without warning!",
@@ -205,12 +205,12 @@
                 "strip_links_unlink_label": "Unlink internal links",
                 "strip_tags_label": "Remove tags from files",
                 "stripping": "Options for ZKN elements",
-                "title": "Export"
+                "title": "匯出"
             },
-            "file_meta": "Show file information",
-            "filename_generator": "Pattern for new filenames",
+            "file_meta": "顯示檔案資訊",
+            "filename_generator": "建立新檔的命名原則",
             "formatting_characters_explanation": "Choose the formatting characters that the bold/emphasis commands should use",
-            "general": "General",
+            "general": "一般",
             "hide_dirs": "Hide directories during global search",
             "homeEndBehaviour": "Use the CodeMirror default actions for \u003Ckbd\u003EHome\u003C/kbd\u003E and \u003Ckbd\u003EEnd\u003C/kbd\u003E.",
             "indent_unit": "Indent by the following number of spaces",
@@ -222,8 +222,8 @@
             "pandoc_command": "Pandoc command. \u003Cstrong\u003EOnly for advanced users!\u003C/strong\u003E",
             "pandoc_default": "Default: pandoc",
             "pdf": {
-                "author": "Author",
-                "author_label": "PDF author",
+                "author": "作者",
+                "author_label": "PDF 作者",
                 "bmargin": "Margin bottom",
                 "bmargin_label": "Pagemargin bottom",
                 "font": "Font",
@@ -264,9 +264,9 @@
             },
             "project": {
                 "csl_style": "CSL-Style (optional)",
-                "format": "Export project to:",
-                "title": "Project settings",
-                "title_label": "Project Title"
+                "format": "匯出專案至：",
+                "title": "專案設定",
+                "title_label": "專案標題"
             },
             "readability_algorithm": "Algorithm to use for the readability mode",
             "reset_pandoc_command": "Reset pandoc command",
@@ -282,24 +282,24 @@
             "spellcheck_search_placeholder": "Search for dictionaries &hellip;",
             "spellcheck_warning": "\u003Cem\u003EAttention:\u003C/em\u003E Too many active spell check libraries may slow the app down significanty! Try to stick with three at maximum.",
             "spellchecking": {
-                "title": "Spellchecking"
+                "title": "拼字校正"
             },
             "theme": {
-                "info": "Here you can choose the theme for the app.",
-                "title": "Theme"
+                "info": "在此選擇應用程式的主題",
+                "title": "主題"
             },
-            "title": "Preferences",
+            "title": "偏好設定",
             "translations": {
-                "download": "Click to download",
-                "downloading": "Downloading %s",
-                "error": "Could not download %s.",
-                "not_available": "%s is not available",
-                "success": "Successfully downloaded %s!",
-                "updated": "Updated translations: %s"
+                "download": "點選已下載",
+                "downloading": "正在下載 %s",
+                "error": "無法下載 %s",
+                "not_available": "%s 無法取得",
+                "success": "成功下載 %s！",
+                "updated": "以下翻譯已更新：%s"
             },
-            "user_dictionary": "User dictionary. Remove words by clicking them.",
-            "xelatex": "Path to xelatex executable. Please only change, if Zettlr is unable to locate it.",
-            "xelatex_default": "Default: xelatex",
+            "user_dictionary": "使用者造詞。點選單詞以移除之。",
+            "xelatex": "xelatex 執行檔所在位置。請僅在 Zettlr 找不到它時再修改。",
+            "xelatex_default": "預設值： xelatex",
             "zkn": {
                 "generated_id": "Generated ID",
                 "id_generator_label": "Pattern used to generate new IDs",
@@ -341,7 +341,7 @@
             "year": "Year"
         },
         "tag_cloud": {
-            "copy": "Copy to clipboard",
+            "copy": "複製到剪貼簿",
             "info": "Here you find all tags that you've used somewhere in your files. You can copy the whole list to the clipboard. Hover over the tags to see the number of times you've used them.",
             "title": "Tag Cloud"
         },
