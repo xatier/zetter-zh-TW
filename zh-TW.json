@@ -4,7 +4,7 @@
             "BrLi <brli@chakralinux.org>"
         ],
         "license": "GNU GPL v2",
-        "updated_at": "2020-08-17T11:51:01.000000Z"
+        "updated_at": "2020-08-18T04:01:33.000000Z"
     },
     "dialog": {
         "about": {
@@ -25,9 +25,9 @@
             "projects": "其他專案",
             "showdownjs": "顯示開發日誌，讓您能清楚了解到版本之間更新了什麼",
             "sponsors": "贊助商",
-            "tippyjs": "良好的小幫手提示的來源",
+            "tippyjs": "優秀的提示小幫手源自於此",
             "title": "關於 Zettlr",
-            "trademark": "合法著作權人擁有所有商標與品牌的所有權利。除了使用他們的原始碼之外，Zettlr 與這些專案無任何關係。Node.js 是 Joyent, Inc. 的註冊商標。"
+            "trademark": "合法所有權人擁有所有標章與品牌名的所有權利。除了使用他們的原始碼之外，Zettlr 與這些專案無任何關係。Node.js 是 Joyent, Inc. 的註冊商標。"
         },
         "button": {
             "cancel": "取消",
