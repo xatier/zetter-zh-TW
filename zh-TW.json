@@ -4,7 +4,7 @@
             "BrLi <brli@chakralinux.org>"
         ],
         "license": "GNU GPL v2",
-        "updated_at": "2020-08-18T04:01:33.000000Z"
+        "updated_at": "2020-10-05T01:30:00.000000Z"
     },
     "dialog": {
         "about": {
@@ -73,10 +73,12 @@
             "replace_placeholder": "以…取代"
         },
         "paste_image": {
+            "current_directory": "目前的資料夾",
             "dimensions": "圖片尺寸",
             "info": "此為目前剪貼簿中的影像的預覽圖，按 Enter 以儲存至目前的資料夾下，否則請選擇欲儲存的資料夾。",
             "name_label": "檔案名稱",
             "name_placeholder": "獨一無二的名字",
+            "resize_to": "縮放圖片尺寸至",
             "retain_aspect_label": "保持長寬比",
             "save_cwd": "存到目前的資料夾",
             "title": "從剪貼簿中插入圖片"
@@ -183,7 +185,7 @@
                 "image_size_info": "透過操作下面的捲軸來設定預覽圖的大小",
                 "preview_info": "勾選以下選項來決定哪些元素將在文件內被顯示",
                 "render_citations": "顯示引用段落",
-                "render_htags": "Hide heading characters",
+                "render_htags": "隱藏標題控制字元(#)",
                 "render_iframes": "顯示內置框架",
                 "render_images": "顯示圖片",
                 "render_links": "顯示連結",
@@ -214,6 +216,10 @@
                 "title": "匯出"
             },
             "file_meta": "顯示檔案資訊",
+            "filemanager_combined": "混合模式 &mdash; 在檔案樹狀圖中顯示檔案與資料夾",
+            "filemanager_expanded": "擴充模式 &mdash; 同時顯示檔案樹狀圖與檔案清單",
+            "filemanager_explanation": "檔案總管模式",
+            "filemanager_thin": "縮減模式 &mdash; 只顯示檔案樹狀圖或檔案清單",
             "filename_generator": "建立新檔的命名原則",
             "formatting_characters_explanation": "選擇粗體與斜體的強調字元",
             "general": "一般",
@@ -277,10 +283,10 @@
             },
             "readability_algorithm": "閱讀輔助器使用的演算法",
             "reset_pandoc_command": "重設 pandoc 指令",
-            "sidebar_combined": "混合 &mdash; 在檔案折疊列表中顯示檔案與資料夾",
-            "sidebar_expanded": "擴充 &mdash; 同時顯示檔案折疊列表與檔案清單",
+            "sidebar_combined": "混合模式 &mdash; 在檔案樹狀圖中顯示檔案與資料夾",
+            "sidebar_expanded": "擴充模式 &mdash; 同時顯示檔案樹狀圖與檔案清單",
             "sidebar_explanation": "側邊欄模式",
-            "sidebar_thin": "顯示檔案折疊列表或檔案清單",
+            "sidebar_thin": "顯示檔案樹狀圖或檔案清單",
             "sorting_ascii": "ASCII 序（2在10之後）",
             "sorting_explanation": "檔案的排列順序（用於按名稱排序）",
             "sorting_natural": "自然排序（10在2之後）",
@@ -430,11 +436,13 @@
         "no_attachments": "附加檔案不存在",
         "no_dir_selected": "未選擇資料夾",
         "no_search_results": "無結果",
+        "number_selections": "%s 個選項",
         "statistics_more": "更多數據",
         "today_words": "今日字數",
         "virtual_dirs": "虛擬資料夾",
         "words": "%s 字數",
-        "words_last_month": "上個月的累積字數"
+        "words_last_month": "上個月的累積字數",
+        "words_selected": "%s 個已選擇"
     },
     "localise": {
         "decimal_delimiter": ".",
@@ -446,6 +454,7 @@
         "all_front": "全部移到最上層",
         "bold": "粗體",
         "clear_recent_docs": "清空最近開啟的檔案紀錄",
+        "close_all_tabs": "關閉所有分頁",
         "close_dir": "關閉資料夾",
         "close_file": "關閉檔案",
         "copy": "複製",
@@ -530,9 +539,11 @@
         "toggle_devtools": "開啟/關閉開發者工具",
         "toggle_distraction_free": "專注模式",
         "toggle_file_meta": "其他資訊",
+        "toggle_filemanager": "切換檔案總管",
         "toggle_fullscreen": "開啟/關閉全螢幕",
         "toggle_sidebar": "切換側邊欄",
         "toggle_theme": "切換夜間模式",
+        "toggle_typewriter_mode": "打字機模式",
         "undo": "復原",
         "unhide": "顯示",
         "update": "檢查更新",
