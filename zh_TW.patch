@@ -1,0 +1,34 @@
+diff --git a/source/common/i18n.js b/source/common/i18n.js
+index 2aa10585..ef14ed27 100644
+--- a/source/common/i18n.js
++++ b/source/common/i18n.js
+@@ -269,7 +269,7 @@ function getTranslationMetadata (paths = [ path.join(app.getPath('userData'), '/
+  * @param  {Array} [paths=[]] An array of paths to search for. Optional.
+  * @return {Array}       An array containing metadata for all found files.
+  */
+-function enumLangFiles (paths = [ path.join(app.getPath('userData'), '/lang'), __dirname ]) {
++function enumLangFiles (paths = [ path.join(app.getPath('userData'), '/lang'), path.join(__dirname, '/lang') ]) {
+   // Now go through all search paths and enumerate all available files of interest
+   let candidates = []
+   for (let p of paths) {
+diff --git a/source/common/lang/en-US.json b/source/common/lang/en-US.json
+index f8d2c379..e9a4f2bb 100644
+--- a/source/common/lang/en-US.json
++++ b/source/common/lang/en-US.json
+@@ -157,7 +157,8 @@
+                 "uk-UK": "Ukrainian",
+                 "ur-PK": "Urdu (Pakistan)",
+                 "vi-VI": "Vietnamese",
+-                "zh-CN": "Chinese (China)"
++                "zh-CN": "Chinese (China)",
++                "zh-TW": "Chinese (台灣)"
+             },
+             "attachments_info": "Enter all file extensions that you want to see in your attachment sidebar. Separate them with a comma. Changes are recognized after a restart.",
+             "auto_close_brackets": "Automatically close matching character pairs",
+@@ -681,4 +682,4 @@
+         "error_type": "Option %s has to be of type %s.",
+         "error_value": "Option %s must be one of: %s."
+     }
+-}
+\ No newline at end of file
++}

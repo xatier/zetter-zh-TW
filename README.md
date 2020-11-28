@@ -1,4 +1,4 @@
-# zetter-zh-TW
+# Zettlr-zh-TW
 
 zh-TW translation for Zettlr
 
