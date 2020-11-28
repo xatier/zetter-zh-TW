@@ -1,10 +1,11 @@
 {
     "metadata": {
         "authors": [
-            "BrLi <brli@chakralinux.org>"
+            "BrLi <brli@chakralinux.org>",
+            "xatier <xatierlike@gmail.com>"
         ],
         "license": "GNU GPL v2",
-        "updated_at": "2020-10-05T01:30:00.000000Z"
+        "updated_at": "2020-11-28T01:30:00.000000Z"
     },
     "dialog": {
         "about": {
@@ -109,11 +110,12 @@
                 "es-ES": "Spanish (Spain)",
                 "et-ET": "Estonian",
                 "eu-EU": "Basque",
+                "fa-IR": "Persian (Farsi)",
                 "fi-FI": "Finnish",
                 "fo-FO": "Faroese",
                 "fr-FR": "French (France)",
                 "ga-GA": "Irish",
-                "gd-GD": "Scottich (Gaelic)",
+                "gd-GD": "Scottish (Gaelic)",
                 "gl-ES": "Galician (Spain)",
                 "he-HE": "Hebrew",
                 "hi-IN": "Hindi",
@@ -139,8 +141,8 @@
                 "nl-NL": "Dutch (Netherlands)",
                 "nn-NO": "Norwegian (Nyorsk)",
                 "pl-PL": "Polish",
-                "pt-BR": "Portugese (Brazil)",
-                "pt-PT": "Portugese (Portugal)",
+                "pt-BR": "Portuguese (Brazil)",
+                "pt-PT": "Portuguese (Portugal)",
                 "ro-RO": "Romanian",
                 "ru-RU": "Russian",
                 "rw-RW": "Rwandan (Kinyarwanda)",
@@ -310,6 +312,7 @@
                 "success": "成功下載翻譯：%s！",
                 "updated": "以下翻譯已更新：%s"
             },
+            "use_native_appearance": "使用原生視窗外觀",
             "user_dictionary": "使用者造詞。點選單詞以移除之",
             "watchdog_checkbox_label": "啟用輪詢即時監視",
             "watchdog_explainer": "當 Zettlr 誤報大量的遠端檔案已修改警告時請試著開啟這個選項",
@@ -438,11 +441,13 @@
         "no_search_results": "無結果",
         "number_selections": "%s 個選項",
         "statistics_more": "更多數據",
+        "table_of_contents": "目錄",
         "today_words": "今日字數",
         "virtual_dirs": "虛擬資料夾",
         "words": "%s 字數",
         "words_last_month": "上個月的累積字數",
-        "words_selected": "%s 個已選擇"
+        "words_selected": "%s 個已選擇",
+        "workspaces": "Workspaces"
     },
     "localise": {
         "decimal_delimiter": ".",
@@ -457,6 +462,7 @@
         "close_all_tabs": "關閉所有分頁",
         "close_dir": "關閉資料夾",
         "close_file": "關閉檔案",
+        "close_workspace": "關閉 Workspace",
         "copy": "複製",
         "copy_filename": "複製檔案名稱",
         "copy_html": "以 HTML 模式複製",
@@ -504,6 +510,7 @@
         "open_attachment": "開啟附加檔案",
         "open_link": "開啟超連結",
         "open_logs": "開啟紀錄檔",
+        "open_workspace": "打開 Workspace \u2026",
         "pandoc": "取得 Pandoc",
         "paste": "貼上",
         "paste_plain": "以純文字貼上",
