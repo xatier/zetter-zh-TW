@@ -5,7 +5,7 @@
             "xatier <xatierlike@gmail.com>"
         ],
         "license": "GNU GPL v2",
-        "updated_at": "2020-11-28T01:30:00.000000Z"
+        "updated_at": "2020-12-04T02:30:00.000000Z"
     },
     "dialog": {
         "about": {
@@ -628,6 +628,7 @@
         "lang_import_success": "已匯入語系檔 %s",
         "no_command": "收到不包含任何指令的訊息：%s",
         "ok": "OK",
+        "open_file": "開啟檔案",
         "open_folder": "開啟專案資料夾",
         "open_root_directory": "開啟新的根目錄 %s \u2026",
         "open_root_directory_success": "已讀取 %s",
