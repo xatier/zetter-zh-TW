@@ -1,7 +1,7 @@
 # Maintainer: BrLi <brli at chakralinux dot org>
 
 pkgname=zettlr
-pkgver=1.8.0
+pkgver=1.8.1
 pkgrel=2
 pkgdesc="A markdown editor for writing academic texts and taking notes"
 arch=('x86_64')
@@ -13,7 +13,7 @@ optdepends=('pandoc: For exporting to various format'
             'texlive-bin: For Latex support'
             'ttf-lato: Display output in a more comfortable way')
 options=('!strip')
-_commit=b7165b4c3e69cec8c62b7203df41fcbeb91d178d # 1.8.0^0
+_commit=93273f39a0a178f82ad3c8ed64d01faf4224aab1 # 1.8.1^0
 _lang=('de-DE' 'en-GB' 'en-US' 'fr-FR' 'ja-JP' 'zh-CN' 'es-ES' 'ru-RU')
 source=(git+https://github.com/Zettlr/Zettlr.git#commit="${_commit}"
         # citation style
@@ -26,23 +26,23 @@ done
 
 # zh-tw translation
 source+=(
-    'https://raw.githubusercontent.com/Brli/zetter-zh-TW/master/zh-TW.json'
+    'https://raw.githubusercontent.com/xatier/zetter-zh-TW/master/zh-TW.json'
     'https://raw.githubusercontent.com/xatier/zetter-zh-TW/master/zh_TW.patch'
 )
 
 sha256sums=('SKIP'
-            '4a3b89033d6bbb669a7d046d23224dc3eaaa2840cc8a5dd2c5d6201a61e3f1a1'
+            'dea821e58120909dbe67c32d2a05a868c7ebc406c1d93e0b2cca56c82263e81a'
             '2b7cd6c1c9be4add8c660fb9c6ca54f1b6c3c4f49d6ed9fa39c9f9b10fcca6f4'
-            '192b9db172cbc2f1e9e1c5f7aee4757f1ef960c851561c001fe877b92bf2fff2'
-            '71bd0c5462dc7dbcc38e7d6f31eb7d0cfe7cfcb1291ce3d670da43195c98a460'
-            'b7583049214837ae023495dc1264089f8f43c22d788b66ef2c31fadfcf911b19'
+            '8578534647c46e8b9150a471cf1fa4e791cc2709562aa47fa4675a01faf37de7'
+            '00866f9f4e327b9bbc3c8295b8245249ccb42939696aea97412db7a7725445f6'
+            '7beea98f9ad078240297121a5d8c392ac187a77dc3484603d584ea8a16cb43a8'
             'ccfd645e08d8cb25acd867209773305dd29a224e0496b5c4f1412651e1406406'
-            '8c9a649286d4b7cb90c9481408de10ae6a1ae103340b46d1c10e7bfa4defd188'
+            'b23b36607a8b0ebe35a59d9954e09cdb0e79b660ed8d96b8a18817aae09f061e'
             '1e6f2fa86679f1bbdb669acbc079b5b468a355ba1827f4ff8e81cba6148dc114'
             '8729104501d29682171c91cf8f095fa52967ef061dbaf7390fd57be88bd507bd'
             'c03aee051a159c32ad44ac6ead384343a0850112ba95663da2b390fd115806a4'
-            '81730193afc64908f820020a19bfeda4475c67ada92e8567a39c9313a3d65ff0'
-            'f10f06c56cf97bfaca29cf572eb274f1c52e217e926794a7b401563be9c71ad4')
+            '14b1534a8ab29eade7d6cdaf92f539dc2851e312e922ef5923b8566b1bc070d3'
+            'f8756bfaa5dec00524f98e16097943c4901ed257aac36e556be1fc97631433e0')
 
 prepare() {
     cd "${srcdir}/Zettlr"

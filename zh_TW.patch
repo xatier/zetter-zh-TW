@@ -1,16 +1,3 @@
-diff --git a/source/common/i18n.js b/source/common/i18n.js
-index 2aa10585..ef14ed27 100644
---- a/source/common/i18n.js
-+++ b/source/common/i18n.js
-@@ -269,7 +269,7 @@ function getTranslationMetadata (paths = [ path.join(app.getPath('userData'), '/
-  * @param  {Array} [paths=[]] An array of paths to search for. Optional.
-  * @return {Array}       An array containing metadata for all found files.
-  */
--function enumLangFiles (paths = [ path.join(app.getPath('userData'), '/lang'), __dirname ]) {
-+function enumLangFiles (paths = [ path.join(app.getPath('userData'), '/lang'), path.join(__dirname, '/lang') ]) {
-   // Now go through all search paths and enumerate all available files of interest
-   let candidates = []
-   for (let p of paths) {
 diff --git a/source/common/lang/en-US.json b/source/common/lang/en-US.json
 index f8d2c379..e9a4f2bb 100644
 --- a/source/common/lang/en-US.json
