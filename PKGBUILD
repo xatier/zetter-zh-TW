@@ -2,7 +2,7 @@
 
 pkgname=zettlr
 pkgver=1.8.1
-pkgrel=1
+pkgrel=2
 pkgdesc="A markdown editor for writing academic texts and taking notes"
 arch=('x86_64')
 url='https://www.zettlr.com'
@@ -21,22 +21,26 @@ source=(git+https://github.com/Zettlr/Zettlr.git#commit="${_commit}"
         https://github.com/citation-style-language/styles/raw/master/chicago-author-date.csl
         # Chinese(Taiwan) translation
         https://github.com/Brli/zetter-zh-TW/raw/master/zh-TW.json)
-        # translations
 sha256sums=('SKIP'
             '8ee8c7e0ea63aacf811fb6f4bdb8f8f32929bf9afdad2f0ffc2f6bfb721d1fd5'
             '2b7cd6c1c9be4add8c660fb9c6ca54f1b6c3c4f49d6ed9fa39c9f9b10fcca6f4'
-            '81730193afc64908f820020a19bfeda4475c67ada92e8567a39c9313a3d65ff0')
+            '14b1534a8ab29eade7d6cdaf92f539dc2851e312e922ef5923b8566b1bc070d3')
+
+# translations
 for _l in ${_lang[@]}; do
     source+=(https://translate.zettlr.com/download/${_l}.json)
     sha256sums+=('SKIP')
 done
+
+source+=('https://github.com/xatier/zetter-zh-TW/raw/master/zip.patch')
+sha256sums+=('a6271d953f7aa38672f59b7a75145150014832093469681d1d97db0df029b10a')
 
 prepare() {
     cd "${srcdir}/Zettlr"
 
     # pandoc citeproc argument deprecation
     sed 's,--filter pandoc-citeproc,--citeproc,' -i source/main/modules/export/run-pandoc.js
-    
+
     # LaTeX Error: Environment CSLReferences undefined.
     sed 's,cslreferences,CSLReferences,' -i source/main/assets/export.tex
 
@@ -53,6 +57,8 @@ prepare() {
 
     # manually add community translation
     cp "${srcdir}/zh-TW.json" source/common/lang/
+
+    patch -p1 <"${srcdir}/zip.patch"
 
     # csl:refresh from package.json
     cp $(find "${srcdir}/locales-${_csl_locale_commit}/" -name "*.xml") source/app/service-providers/assets/csl-locales/
@@ -74,8 +80,9 @@ build() {
     yarn install --pure-lockfile --cache-folder "${srcdir}/cache"
 
     cd "${srcdir}/Zettlr"
-    # failed without deb or rpm anyway, we just want the outcome
-    node node_modules/.bin/electron-forge package || true
+
+    # build the zipball target so that we can collect the artifacts
+    node node_modules/.bin/electron-forge make --targets @electron-forge/maker-zip
 }
 
 # check() {
@@ -100,7 +107,7 @@ package() {
 
     # copy the generated electron project
     cp -r --no-preserve=ownership --preserve=mode ./* "${pkgdir}/${_destdir}/"
-    
+
     # symlink to /usr/bin
     install -dm755 "${pkgdir}/usr/bin"
     ln -sf "/${_destdir}/Zettlr" "${pkgdir}/usr/bin/zettlr"
