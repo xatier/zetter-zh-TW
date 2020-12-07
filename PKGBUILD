@@ -12,43 +12,42 @@ makedepends=(yarn git gulp)
 optdepends=('pandoc: For exporting to various format'
             'texlive-bin: For Latex support'
             'ttf-lato: Display output in a more comfortable way')
-options=('!strip')
 _commit=93273f39a0a178f82ad3c8ed64d01faf4224aab1 # 1.8.1^0
+_csl_locale_commit=cbb45961b815594f35c36da7e78154feb5647823
 _lang=('de-DE' 'en-GB' 'en-US' 'fr-FR' 'ja-JP' 'zh-CN' 'es-ES' 'ru-RU')
 source=(git+https://github.com/Zettlr/Zettlr.git#commit="${_commit}"
         # citation style
-        https://github.com/citation-style-language/locales/archive/master.zip
-        https://raw.githubusercontent.com/citation-style-language/styles/master/chicago-author-date.csl)
-        # translations
+        https://github.com/citation-style-language/locales/archive/"${_csl_locale_commit}.zip"
+        https://github.com/citation-style-language/styles/raw/master/chicago-author-date.csl
+        # Chinese(Taiwan) translation
+        https://github.com/Brli/zetter-zh-TW/raw/master/zh-TW.json)
+sha256sums=('SKIP'
+            '8ee8c7e0ea63aacf811fb6f4bdb8f8f32929bf9afdad2f0ffc2f6bfb721d1fd5'
+            '2b7cd6c1c9be4add8c660fb9c6ca54f1b6c3c4f49d6ed9fa39c9f9b10fcca6f4'
+            '14b1534a8ab29eade7d6cdaf92f539dc2851e312e922ef5923b8566b1bc070d3')
+
+# translations
 for _l in ${_lang[@]}; do
     source+=(https://translate.zettlr.com/download/${_l}.json)
+    sha256sums+=('SKIP')
 done
 
-# zh-tw translation
-source+=(
-    'https://raw.githubusercontent.com/xatier/zetter-zh-TW/master/zh-TW.json'
-    'https://raw.githubusercontent.com/xatier/zetter-zh-TW/master/zh_TW.patch'
-)
-
-sha256sums=('SKIP'
-            'dea821e58120909dbe67c32d2a05a868c7ebc406c1d93e0b2cca56c82263e81a'
-            '2b7cd6c1c9be4add8c660fb9c6ca54f1b6c3c4f49d6ed9fa39c9f9b10fcca6f4'
-            '8578534647c46e8b9150a471cf1fa4e791cc2709562aa47fa4675a01faf37de7'
-            '00866f9f4e327b9bbc3c8295b8245249ccb42939696aea97412db7a7725445f6'
-            '7beea98f9ad078240297121a5d8c392ac187a77dc3484603d584ea8a16cb43a8'
-            'ccfd645e08d8cb25acd867209773305dd29a224e0496b5c4f1412651e1406406'
-            'b23b36607a8b0ebe35a59d9954e09cdb0e79b660ed8d96b8a18817aae09f061e'
-            '1e6f2fa86679f1bbdb669acbc079b5b468a355ba1827f4ff8e81cba6148dc114'
-            '8729104501d29682171c91cf8f095fa52967ef061dbaf7390fd57be88bd507bd'
-            'c03aee051a159c32ad44ac6ead384343a0850112ba95663da2b390fd115806a4'
-            '14b1534a8ab29eade7d6cdaf92f539dc2851e312e922ef5923b8566b1bc070d3'
-            'f8756bfaa5dec00524f98e16097943c4901ed257aac36e556be1fc97631433e0')
+source+=('https://github.com/xatier/zetter-zh-TW/raw/master/zip.patch')
+sha256sums+=('a6271d953f7aa38672f59b7a75145150014832093469681d1d97db0df029b10a')
 
 prepare() {
     cd "${srcdir}/Zettlr"
 
+    # pandoc citeproc argument deprecation
+    sed 's,--filter pandoc-citeproc,--citeproc,' -i source/main/modules/export/run-pandoc.js
+
+    # LaTeX Error: Environment CSLReferences undefined.
+    sed 's,cslreferences,CSLReferences,' -i source/main/assets/export.tex
+
     # We don't build electron and friends, and don't depends on postinstall script
     sed '/^\s*\"electron-notarize.*$/d;/^\s*\"electron-builder.*$/d;/postinstall/d' -i package.json
+
+    # npm/yarn failed with the ^head...
     sed 's/\^10.1.5/10.1.5/' -i package.json
 
     # lang:refresh from package.json
@@ -56,13 +55,14 @@ prepare() {
         cp "${srcdir}/${_l}.json" source/common/lang/
     done
 
-    # zh-tw translations
+    # manually add community translation
     cp "${srcdir}/zh-TW.json" source/common/lang/
-    patch -p1 <"${srcdir}/zh_TW.patch"
+
+    patch -p1 <"${srcdir}/zip.patch"
 
     # csl:refresh from package.json
-    cp $(find "${srcdir}/locales-master/" -name "*.xml") source/app/service-providers/assets/csl-locales/
-    cp "${srcdir}/locales-master/locales.json" source/app/service-providers/assets/csl-locales/
+    cp $(find "${srcdir}/locales-${_csl_locale_commit}/" -name "*.xml") source/app/service-providers/assets/csl-locales/
+    cp "${srcdir}/locales-${_csl_locale_commit}/locales.json" source/app/service-providers/assets/csl-locales/
     cp "${srcdir}/chicago-author-date.csl" source/app/service-providers/assets/csl-styles/
 
 }
@@ -80,12 +80,9 @@ build() {
     yarn install --pure-lockfile --cache-folder "${srcdir}/cache"
 
     cd "${srcdir}/Zettlr"
-    node node_modules/.bin/electron-forge make || true # always failed anyway, we just want the outcome .webpack directory
 
-    cd "${srcdir}/Zettlr/.webpack"
-
-    # remove fonts
-    find . -type d -name "fonts" -exec rm -rfv {} +
+    # build the zipball target so that we can collect the artifacts
+    node node_modules/.bin/electron-forge make --targets @electron-forge/maker-zip
 }
 
 # check() {
@@ -106,16 +103,19 @@ package() {
     local _destdir=usr/lib/"${pkgname}"
     install -dm755 "${pkgdir}/${_destdir}"
 
-    cd "${srcdir}/Zettlr"
+    cd "${srcdir}/Zettlr/out/Zettlr-linux-x64/"
 
-    # only copy the critical parts
-    cp -r --no-preserve=ownership --preserve=mode ./package.json "${pkgdir}/${_destdir}/"
-    cp -r --no-preserve=ownership --preserve=mode ./.webpack "${pkgdir}/${_destdir}/"
+    # copy the generated electron project
+    cp -r --no-preserve=ownership --preserve=mode ./* "${pkgdir}/${_destdir}/"
 
-    install -Dm755 /dev/stdin "${pkgdir}/usr/bin/${pkgname}" <<END
+    # symlink to /usr/bin
+    install -dm755 "${pkgdir}/usr/bin"
+    ln -sf "/${_destdir}/Zettlr" "${pkgdir}/usr/bin/zettlr"
+
+#    install -Dm755 /dev/stdin "${pkgdir}/usr/bin/${pkgname}" <<END
 #!/bin/sh
-exec electron /${_destdir} "\$@"
-END
+#exec electron /${_destdir} "\$@"
+#END
 
     # install icons of various sizes to hi-color theme
     for px in 16 24 32 48 64 96 128 256 512; do
@@ -123,7 +123,7 @@ END
             "${pkgdir}/usr/share/icons/hicolor/${px}x${px}/apps/${pkgname}.png"
     done
 
-    # generate freedesktop entry files
+    # generate freedesktop entry files, aligned with description in package.json and forge.config.js
     install -Dm644 /dev/stdin "${pkgdir}/usr/share/applications/${pkgname}.desktop" <<END
 [Desktop Entry]
 Name=Zettlr
