@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # upstream translation
-UPSTREAM='https://raw.githubusercontent.com/Zettlr/Zettlr/develop/source/common/lang/en-US.json'
+UPSTREAM='https://translate.zettlr.com/download/en-US.json'
 OUTPUT='en-US.json'
 
 curl -Ss "$UPSTREAM" >"$OUTPUT"
