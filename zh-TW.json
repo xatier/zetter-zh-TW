@@ -5,7 +5,7 @@
             "xatier <xatierlike@gmail.com>"
         ],
         "license": "GNU GPL v2",
-        "updated_at": "2020-12-04T02:30:00.000000Z"
+        "updated_at": "2020-12-25T02:30:00.000000Z"
     },
     "dialog": {
         "about": {
@@ -183,6 +183,7 @@
             "creationtime": "檔案建立時間",
             "debug": "開啟除錯模式",
             "default_image_save_path": "預設的圖片路徑（相對路徑或絕對路徑）",
+            "delete_on_fail": "無法移到資源回收桶時，直接不可逆的刪除檔案",
             "display": {
                 "image_size_info": "透過操作下方捲軸設定預覽圖的大小",
                 "preview_info": "勾選以下選項決定哪些元素將在文件內被顯示",
@@ -285,10 +286,6 @@
             },
             "readability_algorithm": "閱讀輔助器使用的演算法",
             "reset_pandoc_command": "重設 pandoc 指令",
-            "sidebar_combined": "混合模式 &mdash; 檔案樹狀圖中顯示檔案與資料夾",
-            "sidebar_expanded": "擴充模式 &mdash; 同時顯示檔案樹狀圖與檔案清單",
-            "sidebar_explanation": "側邊欄模式",
-            "sidebar_thin": "Thin &mdash; 顯示檔案樹狀圖或檔案清單",
             "sorting_ascii": "ASCII 排序（2在10之後）",
             "sorting_explanation": "檔案的排列順序（用於按名稱排序）",
             "sorting_natural": "自然排序（10在2之後）",
@@ -344,8 +341,10 @@
                 "var_minute": "分鐘 (mm)",
                 "var_month": "月 (MM)",
                 "var_second": "秒 (ss)",
+                "var_unix_epoch": "Unix 時間",
                 "var_week_number": "當年的周數（前綴補零）",
-                "var_year": "年 (YYYY 四位數字)"
+                "var_year": "年 (YYYY 四位數字)",
+                "var_year_two": "年 (YY 西元末兩位)"
             }
         },
         "statistics": {
@@ -383,7 +382,6 @@
             "connection_error": "無法檢查更新：無法建立連線",
             "current_version": "目前版本",
             "no_data": "無法檢查更新：伺服器未發送任何數據",
-            "no_update": "已經是最新版的 Zettlr",
             "notification": "已有新版 Zettlr。請閱讀以下的開發日誌。",
             "redirect_error": "無法檢查更新：伺服器嘗試重定向（錯誤碼：%s）",
             "release_url": "前往下載頁面",
@@ -443,7 +441,6 @@
         "statistics_more": "更多數據",
         "table_of_contents": "目錄",
         "today_words": "今日字數",
-        "virtual_dirs": "虛擬資料夾",
         "words": "%s 字數",
         "words_last_month": "上個月的累積字數",
         "words_selected": "%s 個已選擇",
@@ -504,7 +501,6 @@
         "new_dir": "新增資料夾\u2026",
         "new_file": "新增檔案\u2026",
         "new_project": "新增專案",
-        "new_vd": "新增虛擬資料夾\u2026",
         "no_suggestions": "無意見",
         "open": "開啟\u2026",
         "open_attachment": "開啟附加檔案",
@@ -561,7 +557,6 @@
         "zoom_out": "縮小"
     },
     "pomodoro": {
-        "mute": "音效",
         "phase": {
             "long": "長音",
             "short": "短音",
@@ -584,7 +579,6 @@
             "could_not_create_file": "無法新增檔案",
             "could_not_save_image": "無法保存圖片",
             "delete_root_message": "您無法刪除根目錄。",
-            "delete_root_title": "無法刪除根目錄",
             "dnf_message": "找不到要求的資料夾。",
             "dnf_title": "找不到資料夾",
             "export_error_message": "匯出錯誤：%s",
@@ -604,15 +598,11 @@
             "no_xelatex_message": "Zettlr 無法在此系統上偵測到 LaTeX 發行版。 請在匯出 PDF 前安裝 LaTeX。",
             "no_xelatex_title": "找不到 LaTeX",
             "open_attachment_error": "無法開啟附加檔案，是否正在執行 Zotero？",
-            "open_root_error": "無法開啟 %s",
             "open_url_error": "無法開啟 %s",
             "pandoc_error_message": "Pandoc 回報錯誤: %s",
             "pandoc_error_title": "無法匯出檔案",
             "remove_message": "您是否真的要移除 %s？",
-            "remove_title": "是否刪除？",
-            "rename_root_message": "您無法重命名根目錄。",
-            "rename_root_title": "無法重命名根目錄",
-            "virtual_dir_exists": "虛擬資料夾 &quot;%s&quot; 已經存在"
+            "remove_title": "是否刪除？"
         },
         "export_success": "匯出到 %s",
         "file_changed": "遠端檔案 %s 已變更",
