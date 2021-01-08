@@ -5,7 +5,7 @@
             "xatier <xatierlike@gmail.com>"
         ],
         "license": "GNU GPL v2",
-        "updated_at": "2020-12-25T02:30:00.000000Z"
+        "updated_at": "2021-01-08T10:30:00.000000Z"
     },
     "dialog": {
         "about": {
@@ -165,15 +165,16 @@
             "auto_dark_mode_schedule": "自訂時程",
             "auto_dark_mode_schedule_format": "HH:MM (24 小時制)",
             "auto_dark_mode_system": "隨系統時間判斷",
+            "autocomplete_accept_space": "自動補完時接受空白",
             "autocorrect": {
                 "active_label": "開啟自動校正",
                 "quick_select_label": "快速選擇",
-                "quick_select_none_label": "無",
+                "quick_select_none_label": "關閉智慧引號",
                 "quotes_double_label": "雙引號",
                 "quotes_single_label": "單引號",
                 "replacement_info": "您可以於此自訂轉換列表。當「自動校正」功能啟動時，左側的符號將被自動替換成右邊的符號。",
-                "style_libre_office_label": "LibreOffice 風格",
-                "style_word_label": "Word 風格",
+                "style_libre_office_label": "LibreOffice 風格 (按下 空白鍵 或 Enter 替換)",
+                "style_word_label": "Word 風格 (不需按下 空白鍵 或 Enter 而立即替換)",
                 "title": "自動校正"
             },
             "checkForBeta": "提醒我 Beta 版的更新",
@@ -199,6 +200,7 @@
             },
             "display_time_explanation": "在檔案中顯示中繼資料",
             "editor": "編輯器",
+            "editor_font_size": "編輯器字型大小",
             "editor_setting": {
                 "direction_ltr": "使用從左至右的書寫方向",
                 "direction_rtl": "使用從右至左的書寫方向",
@@ -538,7 +540,6 @@
         "tab_next": "下一個分頁",
         "tab_previous": "上一個分頁",
         "tags": "管理標籤\u2026",
-        "toggle_attachments": "檢視附加檔案",
         "toggle_devtools": "開啟/關閉開發者工具",
         "toggle_distraction_free": "專注模式",
         "toggle_file_meta": "其他資訊",
