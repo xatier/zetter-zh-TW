@@ -5,7 +5,7 @@
             "xatier <xatierlike@gmail.com>"
         ],
         "license": "GNU GPL v2",
-        "updated_at": "2021-01-08T10:30:00.000000Z"
+        "updated_at": "2021-01-18T06:30:00.000000Z"
     },
     "dialog": {
         "about": {
@@ -218,7 +218,8 @@
                 "strip_links_unlink_label": "取消內部連結",
                 "strip_tags_label": "刪除檔案中的標籤",
                 "stripping": "ZKN 元素的選項",
-                "title": "匯出"
+                "title": "匯出",
+                "use_bundled_pandoc": "使用內建的 Pandoc 匯出檔案"
             },
             "file_meta": "顯示檔案資訊",
             "filemanager_combined": "混合模式 &mdash; 檔案樹狀圖中顯示檔案與資料夾",
@@ -320,6 +321,7 @@
             "xelatex_default": "預設值：xelatex",
             "zkn": {
                 "auto_create_file": "追蹤內部連結時自動建立不存在的檔案",
+                "auto_search": "當追蹤 Zettelkasten 連結時開啟搜尋",
                 "generated_id": "產生 ID",
                 "id_generator_label": "用於產生新 ID 的模式",
                 "id_label": "ID 的正則表達式",
